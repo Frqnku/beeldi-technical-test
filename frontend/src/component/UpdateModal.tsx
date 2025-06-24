@@ -92,7 +92,7 @@ export default function UpdateModal({ equipment, setSelectedEquipment }: UpdateM
 
 	  const queryClient = useQueryClient();
 
-  const { mutate: updateEquipment, isLoading } = useMutation({
+  const { mutate: updateEquipment } = useMutation({
     mutationFn: async (data: FormValues) => {
       const equipmentTypeId =
         data.subcategoryId?.trim() ||

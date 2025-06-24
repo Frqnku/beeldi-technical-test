@@ -61,7 +61,7 @@ export default function CreateModal({ open, onClose }: CreateModalProps) {
 
   const queryClient = useQueryClient();
 
-  const { mutate: createEquipment, isLoading } = useMutation({
+  const { mutate: createEquipment } = useMutation({
     mutationFn: async (data: FormValues) => {
       const equipmentTypeId =
         data.subcategoryId?.trim() ||
