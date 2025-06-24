@@ -92,7 +92,7 @@ export default function CreateModal({ open, onClose }: CreateModalProps) {
       reset();
       onClose();
     },
-    onError: (err: any) => {
+    onError: (err: Error) => {
       toast.error("Erreur lors de l’ajout : " + err.message);
     },
   });
