@@ -88,7 +88,7 @@ export default function CreateModal({ open, onClose }: CreateModalProps) {
     },
     onSuccess: () => {
       toast.success("Équipement ajouté !");
-      queryClient.invalidateQueries({ queryKey: ["equipment"] });
+      queryClient.invalidateQueries({ queryKey: ["equipments"] });
       reset();
       onClose();
     },

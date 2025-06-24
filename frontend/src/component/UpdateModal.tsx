@@ -119,7 +119,7 @@ export default function UpdateModal({ equipment, setSelectedEquipment }: UpdateM
     },
     onSuccess: () => {
       toast.success("Équipement mis à jour !");
-      queryClient.invalidateQueries({ queryKey: ["equipment"] });
+      queryClient.invalidateQueries({ queryKey: ["equipments"] });
       setSelectedEquipment(null);
     },
     onError: (err: Error) => {
