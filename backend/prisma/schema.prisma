@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Equipment {
+  id        String   @id @default(cuid())
+  name      String
+  brand     String
+  model     String
+  typeId    String
+  type      EquipmentType @relation(fields: [typeId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model EquipmentType {
+  id        String          @id @default(cuid())
+  name      String
+  parentId  String?
+  parent    EquipmentType?  @relation("EquipmentTypeToChildren", fields: [parentId], references: [id])
+  children  EquipmentType[] @relation("EquipmentTypeToChildren")
+  equipments Equipment[]
+}
